@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import PIL
 from PIL import Image
 
 BASE_PATH = '/usr/xtmp/DS_GRSS/CS474/Dataset/200SquareMaskData'
@@ -24,9 +25,11 @@ def AggregateAndStore():
                 np.save(gtPath, currImage)
             else:
                 channels.append(currImage)
-        channels = np.array(channels)
+        channels = np.concatenate(channels, axis=0 )
         imgPath = os.path.join(IMG_PATH, "{}.npy".format(imgID))
+        print(channels.shape)
         np.save(imgPath, channels)
+        break
 
 AggregateAndStore()
 

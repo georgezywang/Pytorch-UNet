@@ -25,18 +25,18 @@ class BasicDataset(Dataset):
 
     @classmethod
     def preprocess(cls, pil_img, scale):
-        w, h = pil_img.size
-        newW, newH = int(scale * w), int(scale * h)
-        assert newW > 0 and newH > 0, 'Scale is too small'
-        pil_img = pil_img.resize((newW, newH))
+        # w, h = pil_img.size
+        # newW, newH = int(scale * w), int(scale * h)
+        # assert newW > 0 and newH > 0, 'Scale is too small'
+        # pil_img = pil_img.resize((newW, newH))
 
-        img_nd = np.array(pil_img)
+        # img_nd = np.array(pil_img)
 
-        if len(img_nd.shape) == 2:
-            img_nd = np.expand_dims(img_nd, axis=2)
+        if len(pil_img.shape) == 2:
+            pil_img = np.expand_dims(pil_img, axis=2)
 
         # HWC to CHW
-        img_trans = img_nd.transpose((2, 0, 1))
+        img_trans = pil_img.transpose((2, 0, 1))
         if img_trans.max() > 1:
             img_trans = img_trans / 255
 
@@ -54,11 +54,11 @@ class BasicDataset(Dataset):
         mask = np.load(mask_file[0]) #Image.open(mask_file[0])
         img = np.load(img_file[0])#Image.open(img_file[0])
 
-        mask = Image.fromarray(mask)
-        img = Image.fromarray(img)
+        # mask = Image.fromarray(mask)
+        # img = Image.fromarray(img)
 
-        assert img.size == mask.size, \
-            f'Image and mask {idx} should be the same size, but are {img.size} and {mask.size}'
+        # assert img.size == mask.size, \
+        #     f'Image and mask {idx} should be the same size, but are {img.size} and {mask.size}'
 
         img = self.preprocess(img, self.scale)
         mask = self.preprocess(mask, self.scale)

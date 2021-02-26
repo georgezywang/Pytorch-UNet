@@ -63,6 +63,7 @@ def train_net(net,
 
         epoch_loss = 0
         with tqdm(total=n_train, desc=f'Epoch {epoch + 1}/{epochs}', unit='img') as pbar:
+            print(train_loader)
             for batch in train_loader:
                 imgs = batch['image']
                 true_masks = batch['mask']

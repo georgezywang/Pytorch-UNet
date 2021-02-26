@@ -22,7 +22,7 @@ dir_mask = 'data/masks/'
 dir_checkpoint = 'checkpoints/'
 
 currTime = int(time.time())
-fp = open('logging/{}.txt'.format(currTime), 'w')
+fp = open('logging/{}.txt'.format(currTime), 'w+')
 
 def train_net(net,
               device,
@@ -105,7 +105,7 @@ def train_net(net,
                         logging.info('Validation cross entropy: {}'.format(val_score))
                         writer.add_scalar('Loss/test', val_score, global_step)
                     else:
-                        fp.write('Validation Dice Coeff: {}'.format(val_score))
+                        fp.write('Validation Dice Coeff: {}\n'.format(val_score))
                         logging.info('Validation Dice Coeff: {}'.format(val_score))
                         writer.add_scalar('Dice/test', val_score, global_step)
 

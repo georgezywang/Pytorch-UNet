@@ -102,7 +102,8 @@ def train_net(net,
                         logging.info('Validation cross entropy: {}'.format(val_score))
                         writer.add_scalar('Loss/test', val_score, global_step)
                     else:
-                        fp.write('Validation Dice Coeff: {}\n'.format(val_score))
+                        fp.write('Validation Dice Coeff: {}\n'.format(val_score), 1)
+                        fp.flush()
                         logging.info('Validation Dice Coeff: {}'.format(val_score))
                         writer.add_scalar('Dice/test', val_score, global_step)
 

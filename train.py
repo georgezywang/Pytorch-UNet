@@ -146,7 +146,7 @@ def get_args():
 
 if __name__ == '__main__':
     currTime = int(time.time())
-    fp = open('logging/{}.txt'.format(currTime), 'w+'， 1)
+    fp = open('logging/{}.txt'.format(currTime), 'w+', 1)
     logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
     args = get_args()
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

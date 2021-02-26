@@ -24,8 +24,9 @@ def AggregateAndStore():
                 gtPath = os.path.join(MASK_PATH, "{}.npy".format(imgID))
                 np.save(gtPath, currImage)
             else:
+                currImage = np.expand_dims(currImage, axis=2)
                 channels.append(currImage)
-        channels = np.concatenate(channels, axis=2 )
+        channels = np.concatenate(channels, axis=2)
         imgPath = os.path.join(IMG_PATH, "{}.npy".format(imgID))
         print(channels.shape)
         np.save(imgPath, channels)

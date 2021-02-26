@@ -18,6 +18,7 @@ def AggregateAndStore():
         currDir = os.path.join(TRAIN_PATH, fileName)
         channels = []
         for arrays in sorted(os.listdir(currDir)):
+            print(arrays)
             currImage = np.load(os.path.join(currDir, arrays))
             if("groundTruth.npy" in fileName):
                 print("here")

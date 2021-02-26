@@ -14,6 +14,7 @@ def AggregateAndStore():
             imgID = int(fileName)
         except:
             continue
+        print("Processing Data ID {}".format(fileName))
         currDir = os.path.join(TRAIN_PATH, fileName)
         channels = []
         for arrays in sorted(os.listdir(currDir)):

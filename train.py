@@ -8,6 +8,7 @@ import torch
 import torch.nn as nn
 from torch import optim
 from tqdm import tqdm
+import time
 
 from eval import eval_net
 from unet import UNet
@@ -20,6 +21,8 @@ dir_img = 'data/imgs/'
 dir_mask = 'data/masks/'
 dir_checkpoint = 'checkpoints/'
 
+currTime = int(time.time())
+fp = open('logging/{}.txt'.format(currTime), 'w')
 
 def train_net(net,
               device,
@@ -63,7 +66,6 @@ def train_net(net,
 
         epoch_loss = 0
         with tqdm(total=n_train, desc=f'Epoch {epoch + 1}/{epochs}', unit='img') as pbar:
-            print(train_loader)
             for batch in train_loader:
                 imgs = batch['image']
                 true_masks = batch['mask']
@@ -103,6 +105,7 @@ def train_net(net,
                         logging.info('Validation cross entropy: {}'.format(val_score))
                         writer.add_scalar('Loss/test', val_score, global_step)
                     else:
+                        fp.write('Validation Dice Coeff: {}'.format(val_score))
                         logging.info('Validation Dice Coeff: {}'.format(val_score))
                         writer.add_scalar('Dice/test', val_score, global_step)
 

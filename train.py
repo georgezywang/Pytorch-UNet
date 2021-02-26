@@ -102,7 +102,7 @@ def train_net(net,
                         logging.info('Validation cross entropy: {}'.format(val_score))
                         writer.add_scalar('Loss/test', val_score, global_step)
                     else:
-                        fp.write('Validation Dice Coeff: {}\n'.format(val_score), 1)
+                        fp.write('Validation Dice Coeff: {}\n'.format(val_score))
                         fp.flush()
                         logging.info('Validation Dice Coeff: {}'.format(val_score))
                         writer.add_scalar('Dice/test', val_score, global_step)
@@ -146,7 +146,7 @@ def get_args():
 
 if __name__ == '__main__':
     currTime = int(time.time())
-    fp = open('logging/{}.txt'.format(currTime), 'w+')
+    fp = open('logging/{}.txt'.format(currTime), 'w+'， 1)
     logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
     args = get_args()
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

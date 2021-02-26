@@ -7,3 +7,5 @@ checkpoints/
 SUBMISSION*
 venv/
 *.npy
+*.txt
+/logging

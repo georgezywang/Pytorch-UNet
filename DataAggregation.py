@@ -28,9 +28,7 @@ def AggregateAndStore():
                 channels.append(currImage)
         channels = np.concatenate(channels, axis=2)
         imgPath = os.path.join(IMG_PATH, "{}.npy".format(imgID))
-        print(channels.shape)
         np.save(imgPath, channels)
-        break
 
 AggregateAndStore()
 

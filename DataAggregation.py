@@ -20,6 +20,7 @@ def AggregateAndStore():
         for arrays in sorted(os.listdir(currDir)):
             currImage = np.load(os.path.join(currDir, arrays))
             if("groundTruth.npy" in fileName):
+                print("here")
                 gtPath = os.path.join(MASK_PATH, "{}.npy".format(imgID))
                 np.save(gtPath, currImage)
             else:

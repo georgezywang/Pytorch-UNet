@@ -4,7 +4,7 @@ from PIL import Image
 
 BASE_PATH = '/usr/xtmp/DS_GRSS/CS474/Dataset/200SquareMaskData'
 TRAIN_PATH = os.path.join(BASE_PATH, 'Train')
-SAVE_PATH = '/home/home5/zw176/CS474/Pytorch-UNet/data'
+SAVE_PATH = '/usr/xtmp/DS_GRSS/CS474/Pytorch-UNet/data'
 IMG_PATH = os.path.join(SAVE_PATH, 'imgs')
 MASK_PATH = os.path.join(SAVE_PATH, 'masks')
 

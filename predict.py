@@ -126,11 +126,13 @@ if __name__ == "__main__":
                            scale_factor=args.scale,
                            out_threshold=args.mask_threshold,
                            device=device)
+        
 
         if not args.no_save:
-            out_fn = out_files[i]
-            result = mask_to_image(mask)
-            result.save(out_files[i], format='jpg')
+            np.save('test.npy', mask);
+            # out_fn = out_files[i]
+            # result = mask_to_image(mask)
+            # result.save(out_files[i])
 
             logging.info("Mask saved to {}".format(out_files[i]))
 

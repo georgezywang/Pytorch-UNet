@@ -136,4 +136,6 @@ if __name__ == "__main__":
 
         if args.viz:
             logging.info("Visualizing results for image {}, close to continue ...".format(fn))
+            print(img)
+            print(mask)
             plot_img_and_mask(img, mask)

@@ -117,6 +117,7 @@ if __name__ == "__main__":
         logging.info("\nPredicting image {} ...".format(fn))
 
         img = np.load(fn)
+        print(type(img))
         img = Image.fromarray(img)
 
         mask = predict_img(net=net,

@@ -38,7 +38,7 @@ def predict_img(net,
         tf = transforms.Compose(
             [
                 transforms.ToPILImage(),
-                transforms.Resize(full_img.size[1]),
+                transforms.Resize(full_img.shape[1]),
                 transforms.ToTensor()
             ]
         )
@@ -117,9 +117,9 @@ if __name__ == "__main__":
         logging.info("\nPredicting image {} ...".format(fn))
 
         img = np.load(fn)
-        print(img.dtype)
-        print(img[0, :, :])
-        img = Image.fromarray(img)
+        # print(img.dtype)
+        # print(img[0, :, :])
+        # img = Image.fromarray(img)
 
         mask = predict_img(net=net,
                            full_img=img,

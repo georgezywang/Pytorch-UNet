@@ -116,7 +116,7 @@ if __name__ == "__main__":
     for i, fn in enumerate(in_files):
         logging.info("\nPredicting image {} ...".format(fn))
 
-        img = Image.open(fn)
+        img = np.load(fn)
 
         mask = predict_img(net=net,
                            full_img=img,

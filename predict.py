@@ -130,7 +130,7 @@ if __name__ == "__main__":
         if not args.no_save:
             out_fn = out_files[i]
             result = mask_to_image(mask)
-            result.save(out_files[i])
+            result.save(out_files[i], format='jpg')
 
             logging.info("Mask saved to {}".format(out_files[i]))
 
